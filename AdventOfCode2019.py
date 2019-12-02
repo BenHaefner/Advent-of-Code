@@ -1,6 +1,6 @@
 total_fuel = 0
 
-with open('D1P1.txt', 'r') as file: 
+with open('input.txt', 'r') as file: 
     for line in file:
         item = int(line)
         check = 1
