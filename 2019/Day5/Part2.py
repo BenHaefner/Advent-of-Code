@@ -22,32 +22,39 @@ def singleIntOutput(addressValue, senderType):
         print(addressValue)
 
 def jumpTrue(index1, index2, outputIndex, senderType,):
+    global index
     if senderType == 0:
-        index = inputArray[index2] if inputArray[index1] != 0 else inputArray[outputIndex]
+        index = inputArray[index2] if inputArray[index1] != 0 else index
         if index != inputArray[index2]:
             index += 3
     else: 
-        pass
+        index = (inputArray[index2[0]] if index2[1] == 0 else index2[0]) if (inputArray[index1[0]] if index1[1] == 0 else index1[0]) != 0 else index
+        if index != (inputArray[index2[0]] if index2[1] == 0 else index2[0]):
+            index += 3
 
 def jumpFalse(index1, index2, outputIndex, senderType,):
+    global index
     if senderType == 0:
-        index = inputArray[index2] if inputArray[index1] == 0 else inputArray[outputIndex]
+        index = inputArray[index2] if inputArray[index1] == 0 else index
         if index != inputArray[index2]:
             index += 3
     else: 
-        pass
+        index = (inputArray[index2[0]] if index2[1] == 0 else index2[0]) if (inputArray[index1[0]] if index1[1] == 0 else index1[0]) == 0 else index
+        if index != (inputArray[index2[0]] if index2[1] == 0 else index2[0]):
+            index += 3
 
 def lessThan(index1, index2, outputIndex, senderType):
     if senderType == 0:
         inputArray[outputIndex] = 1 if inputArray[index1] < inputArray[index2] else 0
     else: 
-        pass
+        inputArray[outputIndex] = 1 if (inputArray[index1[0]] if index1[1] == 0 else index1[0]) < (inputArray[index2[0]] if index2[1] == 0 else index2[0]) else 0
 
 def equals(index1, index2, outputIndex, senderType):
     if senderType == 0:
         inputArray[outputIndex] = 1 if inputArray[index1] == inputArray[index2] else 0
     else: 
-        pass
+        inputArray[outputIndex] = 1 if (inputArray[index1[0]] if index1[1] == 0 else index1[0]) == (inputArray[index2[0]] if index2[1] == 0 else index2[0]) else 0
+
 
 def opCodeOnly():
     global index
